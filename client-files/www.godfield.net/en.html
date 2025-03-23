@@ -60,36 +60,36 @@
 		<script type="text/javascript">
                   const p = window.location.protocol;
                   const host = window.location.host;
-                  const wp = {"https:": "wss:", "http:": "ws:"}[p];
+                  const wp = {"http:": "ws:", "https:": "wss:"}[p];
 
 		  window.RufflePlayer.config = {
 		      socketProxy: [
 			  {
 			      host: "training.godfield.net", // The address of the server that Flash tries to connect to
 			      port: 58001, // The port that Flash tries to connect to
-			      proxyUrl: `${wp}//${host}:58001`, // The actual proxy that Ruffle will connect to, instead of the above server
+			      proxyUrl: `${wp}//${host}/training`, // The actual proxy that Ruffle will connect to, instead of the above server
 			  },
 			  // EN
 			  {
 			      host: "enfreefight.godfield.net",
 			      port: 58151,
-			      proxyUrl: `${wp}//${host}:58151`,
+			      proxyUrl: `${wp}//${host}/enfreefight`,
 			  },
 			  {
 			      host: "enfreefightprivate.godfield.net",
 			      port: 58251,
-			      proxyUrl: `${wp}//${host}:58251`,
+			      proxyUrl: `${wp}//${host}/enfreefightprivate`,
 			  },
 			  // JP
 			  {
 			      host: "freefight.godfield.net",
 			      port: 58101,
-			      proxyUrl: `${wp}//${host}:58101`,
+			      proxyUrl: `${wp}//${host}/freefight`,
 			  },
 			  {
 			      host: "freefightprivate.godfield.net",
 			      port: 58201,
-			      proxyUrl: `${wp}//${host}:58201`,
+			      proxyUrl: `${wp}//${host}/freefightprivate`,
 			  },
 		      ],
 		      urlRewriteRules: [
