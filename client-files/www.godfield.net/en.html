@@ -58,58 +58,58 @@
 			</div>
 		</div>
 		<script type="text/javascript">
-			const queryString = window.location.search;
-			const urlParams = new URLSearchParams(queryString);
-			const ipAddress = urlParams.get('ipAddress') ?? '127.0.0.1';
+                  const p = window.location.protocol;
+                  const host = window.location.host;
+                  const wp = {"https:": "wss:", "http:": "ws:"}[p];
 
-			window.RufflePlayer.config = {
-				socketProxy: [
-					{
-						host: "training.godfield.net", // The address of the server that Flash tries to connect to
-						port: 58001, // The port that Flash tries to connect to
-						proxyUrl: `ws://${ipAddress}:58001`, // The actual proxy that Ruffle will connect to, instead of the above server
-					},
-					// EN
-					{
-						host: "enfreefight.godfield.net",
-						port: 58151,
-						proxyUrl: `ws://${ipAddress}:58151`,
-					},
-					{
-						host: "enfreefightprivate.godfield.net",
-						port: 58251,
-						proxyUrl: `ws://${ipAddress}:58251`,
-					},
-					// JP
-					{
-						host: "freefight.godfield.net",
-						port: 58101,
-						proxyUrl: `ws://${ipAddress}:58101`,
-					},
-					{
-						host: "freefightprivate.godfield.net",
-						port: 58201,
-						proxyUrl: `ws://${ipAddress}:58201`,
-					},
-				],
-				urlRewriteRules: [
-					[/^https?:\/\/www.godfield.net\/(.*)$/, `http://${ipAddress}/$1`],
-					[/^https?:\/\/static.godfield.net\/(.*)/, `http://${ipAddress}/$1`],
-					[/^https?:\/\/training.godfield.net\/(.*)$/, `http://${ipAddress}/$1`],
-					[/^https?:\/\/enfreefight.godfield.net\/(.*)$/, `http://${ipAddress}/$1`],
-					[/^https?:\/\/freefight.godfield.net\/(.*)$/, `http://${ipAddress}/$1`],
-					[/^https?:\/\/enfreefightprivate.godfield.net\/(.*)$/, `http://${ipAddress}/$1`],
-					[/^https?:\/\/freefightprivate.godfield.net\/(.*)$/, `http://${ipAddress}/$1`]
-				],
-			};
+		  window.RufflePlayer.config = {
+		      socketProxy: [
+			  {
+			      host: "training.godfield.net", // The address of the server that Flash tries to connect to
+			      port: 58001, // The port that Flash tries to connect to
+			      proxyUrl: `${wp}//${host}:58001`, // The actual proxy that Ruffle will connect to, instead of the above server
+			  },
+			  // EN
+			  {
+			      host: "enfreefight.godfield.net",
+			      port: 58151,
+			      proxyUrl: `${wp}//${host}:58151`,
+			  },
+			  {
+			      host: "enfreefightprivate.godfield.net",
+			      port: 58251,
+			      proxyUrl: `${wp}//${host}:58251`,
+			  },
+			  // JP
+			  {
+			      host: "freefight.godfield.net",
+			      port: 58101,
+			      proxyUrl: `${wp}//${host}:58101`,
+			  },
+			  {
+			      host: "freefightprivate.godfield.net",
+			      port: 58201,
+			      proxyUrl: `${wp}//${host}:58201`,
+			  },
+		      ],
+		      urlRewriteRules: [
+			  [/^https?:\/\/www.godfield.net\/(.*)$/, `${p}//${host}/$1`],
+			  [/^https?:\/\/static.godfield.net\/(.*)/, `${p}//${host}/$1`],
+			  [/^https?:\/\/training.godfield.net\/(.*)$/, `${p}//${host}/$1`],
+			  [/^https?:\/\/enfreefight.godfield.net\/(.*)$/, `${p}//${host}/$1`],
+			  [/^https?:\/\/freefight.godfield.net\/(.*)$/, `${p}//${host}/$1`],
+			  [/^https?:\/\/enfreefightprivate.godfield.net\/(.*)$/, `${p}//${host}/$1`],
+			  [/^https?:\/\/freefightprivate.godfield.net\/(.*)$/, `${p}//${host}/$1`]
+		      ],
+		  };
 
-			var swfObject = new SWFObject("/game/godfield.swf", "godfield", "800", "600", "10", "#ffffff");
-			swfObject.addParam("wmode", "window");
-			swfObject.addParam("menu", false);
-			swfObject.addVariable("language", "en");
-			swfObject.addVariable("ipAddress", "201.19.210.203");
-			swfObject.addVariable("valid", true);
-			swfObject.write("swf");
+		  var swfObject = new SWFObject("/game/godfield.swf", "godfield", "800", "600", "10", "#ffffff");
+		  swfObject.addParam("wmode", "window");
+		  swfObject.addParam("menu", false);
+		  swfObject.addVariable("language", "en");
+		  swfObject.addVariable("ipAddress", host);
+		  swfObject.addVariable("valid", true);
+		  swfObject.write("swf");
 		</script>
 	</body>
 </html>
