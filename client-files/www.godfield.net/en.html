@@ -91,7 +91,16 @@
 						port: 58201,
 						proxyUrl: `ws://${ipAddress}:58201`,
 					},
-				]
+				],
+				urlRewriteRules: [
+					[/^https?:\/\/www.godfield.net\/(.*)$/, `http://${ipAddress}/$1`],
+					[/^https?:\/\/static.godfield.net\/(.*)/, `http://${ipAddress}/$1`],
+					[/^https?:\/\/training.godfield.net\/(.*)$/, `http://${ipAddress}/$1`],
+					[/^https?:\/\/enfreefight.godfield.net\/(.*)$/, `http://${ipAddress}/$1`],
+					[/^https?:\/\/freefight.godfield.net\/(.*)$/, `http://${ipAddress}/$1`],
+					[/^https?:\/\/enfreefightprivate.godfield.net\/(.*)$/, `http://${ipAddress}/$1`],
+					[/^https?:\/\/freefightprivate.godfield.net\/(.*)$/, `http://${ipAddress}/$1`]
+				],
 			};
 
 			var swfObject = new SWFObject("/game/godfield.swf", "godfield", "800", "600", "10", "#ffffff");

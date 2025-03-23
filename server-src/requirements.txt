@@ -3,9 +3,9 @@ argparse==1.4.0
 attrs==23.2.0; python_version >= '3.7'
 autobahn==23.6.2; python_version >= '3.9'
 automat==22.10.0
-cffi==1.16.0; platform_python_implementation != 'PyPy'
+cffi==1.17.1; platform_python_implementation != 'PyPy'
 constantly==23.10.4; python_version >= '3.8'
-cryptography==42.0.7; python_version >= '3.7'
+cryptography==44.0.2; python_version >= '3.7'
 hyperlink==21.0.0
 idna==3.7; python_version >= '3.5'
 incremental==22.10.0
@@ -16,5 +16,5 @@ six==1.16.0; python_version >= '2.7' and python_version not in '3.0, 3.1, 3.2, 3
 twisted==24.3.0; python_full_version >= '3.8.0'
 twisted-iocpsupport==1.0.4; platform_system == 'Windows'
 txaio==23.1.1; python_version >= '3.7'
-typing-extensions==4.11.0; python_version >= '3.8'
-zope-interface==6.3; python_version >= '3.7'
+typing-extensions==4.12.2; python_version >= '3.8'
+zope-interface>=6.3; python_version >= '3.7'
